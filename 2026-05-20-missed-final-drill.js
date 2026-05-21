@@ -204,13 +204,13 @@ window.STUDY_DATA.questions.push(
     category: "Missed Final Drill",
     q: "Which are convenience stores allowed to do if they hold the proper retail licence?",
     choices: [
-      "Sell eligible liquor products such as beer, wine, cider, spirits, and ready-to-drink beverages during permitted retail hours",
+      "Sell eligible liquor products such as beer, wine, cider, and ready-to-drink beverages during permitted retail hours",
       "Sell alcohol to any customer who looks responsible without checking age",
       "Sell alcohol 24 hours a day",
       "Allow customers to drink purchased alcohol anywhere in the store"
     ],
     answer: 0,
-    why: "Licensed convenience/grocery stores can sell eligible products, but all age, intoxication, and hour restrictions still apply."
+    why: "Licensed convenience/grocery stores can sell beer, cider, wine, and RTD beverages during permitted hours. Spirits may not be sold in grocery or convenience stores."
   },
   {
     category: "Missed Final Drill",
