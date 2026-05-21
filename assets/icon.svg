@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="SmartServe Pocket Prep">
+  <rect width="256" height="256" rx="42" fill="#0f766e"/>
+  <path d="M58 72c0-12.2 9.8-22 22-22h96c12.2 0 22 9.8 22 22v112c0 12.2-9.8 22-22 22H80c-12.2 0-22-9.8-22-22V72Z" fill="#f7fbfa"/>
+  <path d="M85 95h86M85 124h86M85 153h45" stroke="#0f766e" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="173" cy="165" r="28" fill="#dc6b4f"/>
+  <path d="m160 165 9 9 19-22" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

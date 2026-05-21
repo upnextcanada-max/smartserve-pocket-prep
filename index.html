@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b1110">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Pocket Prep">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="description" content="SmartServe multiple-choice quiz app with instant right and wrong feedback.">
+    <meta property="og:title" content="SmartServe Pocket Prep">
+    <meta property="og:description" content="Multiple-choice SmartServe study quiz with instant feedback.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/icon-512.png">
+    <title>SmartServe Pocket Prep</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/icon-192.png">
+    <link rel="stylesheet" href="styles.css?v=14">
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">SmartServe</p>
+          <h1>Pocket Prep</h1>
+        </div>
+        <button id="installButton" class="icon-button" type="button" hidden aria-label="Install app" title="Install app">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 15v3a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3"/>
+          </svg>
+        </button>
+      </header>
+
+      <section class="stats" aria-label="Study stats">
+        <div>
+          <strong id="answeredCount">0</strong>
+          <span>answered</span>
+        </div>
+        <div>
+          <strong id="scoreCount">0/0</strong>
+          <span>this run</span>
+        </div>
+        <div>
+          <strong id="missedCount">0</strong>
+          <span>missed</span>
+        </div>
+      </section>
+
+      <section class="actions" aria-label="Quiz modes">
+        <button id="examSim" class="primary-button" type="button">Exam Sim</button>
+        <button id="quick10" class="ghost-button" type="button">Quick 10</button>
+        <button id="missedOnly" class="ghost-button" type="button">Missed</button>
+      </section>
+
+      <section class="view-tabs" aria-label="Study views">
+        <button id="quizTab" class="tab-button active" type="button">Quiz</button>
+        <button id="cramTab" class="tab-button" type="button">Cram</button>
+        <button id="cardsTab" class="tab-button" type="button">Cards</button>
+        <button id="audioTab" class="tab-button" type="button">Audio</button>
+      </section>
+
+      <section id="quizView" class="quiz-card" aria-live="polite">
+        <div class="progress-row">
+          <span id="progressText">Question 1</span>
+          <span id="categoryText">SmartServe</span>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progressBar" class="progress-fill"></div>
+        </div>
+        <h2 id="questionText">What is the legal drinking age in Ontario?</h2>
+        <div id="choices" class="choices">
+          <button class="choice-button" type="button">18</button>
+          <button class="choice-button" type="button">19</button>
+          <button class="choice-button" type="button">21</button>
+          <button class="choice-button" type="button">25</button>
+        </div>
+        <div id="feedback" class="feedback" hidden></div>
+        <button id="nextButton" class="primary-button full-width" type="button" hidden>Next</button>
+      </section>
+
+      <section id="cramView" class="study-card" hidden>
+        <div class="section-title">
+          <h2>Cram Sheet</h2>
+          <button id="shuffleFacts" class="text-button" type="button">Shuffle</button>
+        </div>
+        <div id="factList" class="fact-list"></div>
+      </section>
+
+      <section id="cardsView" class="study-card" hidden>
+        <div class="section-title">
+          <h2>Flashcards</h2>
+          <span id="cardCounter" class="pill">1/1</span>
+        </div>
+        <button id="flashcard" class="flashcard" type="button">
+          <span id="cardCategory">SmartServe</span>
+          <strong id="cardPrompt">Tap to study</strong>
+          <em id="cardAnswer" hidden></em>
+        </button>
+        <div class="card-actions">
+          <button id="prevCard" class="ghost-button" type="button">Previous</button>
+          <button id="flipCard" class="primary-button" type="button">Flip</button>
+          <button id="nextCard" class="ghost-button" type="button">Next</button>
+        </div>
+      </section>
+
+      <section id="audioView" class="study-card audio-card" hidden>
+        <div class="section-title">
+          <h2>Answer Audio</h2>
+          <span class="pill">12.5 min</span>
+        </div>
+        <audio
+          id="answerAudio"
+          class="answer-audio"
+          controls
+          preload="metadata"
+          src="assets/2026-05-20_SmartServe_answer-key_voice-study.mp3"
+        ></audio>
+        <a class="download-link" href="assets/2026-05-20_SmartServe_answer-key_voice-study.mp3" download>Save MP3</a>
+      </section>
+
+      <section class="review-card">
+        <div class="section-title">
+          <h2>Missed Review</h2>
+          <button id="clearMissed" class="text-button" type="button">Clear</button>
+        </div>
+        <div id="reviewList" class="review-list"></div>
+      </section>
+    </main>
+
+    <script src="app-data.js?v=14"></script>
+    <script src="course-extra.js?v=14"></script>
+    <script src="official-exam-prep.js?v=14"></script>
+    <script src="2026-05-13-course-deep-dive.js?v=14"></script>
+    <script src="2026-05-13-id-license-masterclass.js?v=14"></script>
+    <script src="2026-05-20-consolidated-final-test.js?v=14"></script>
+    <script src="2026-05-20-missed-final-drill.js?v=14"></script>
+    <script src="app.js?v=14"></script>
+  </body>
+</html>
