@@ -342,6 +342,51 @@ h2 {
   margin-top: 12px;
 }
 
+.answer-board {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.board-alert {
+  padding: 11px 12px;
+  color: #ffe8c2;
+  background: rgba(243, 183, 95, 0.13);
+  border: 1px solid rgba(243, 183, 95, 0.34);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.board-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.board-grid article {
+  padding: 11px;
+  background: rgba(255, 255, 255, 0.065);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.board-grid strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--teal-dark);
+  font-size: 13px;
+  line-height: 1.15;
+}
+
+.board-grid p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
 .review-item,
 .fact-item {
   padding: 10px;
