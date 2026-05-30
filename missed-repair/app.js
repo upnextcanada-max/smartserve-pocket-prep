@@ -82,6 +82,45 @@
     }
   ];
 
+  const trapTopics = [
+    {
+      title: "Health Card Trap",
+      remembered: "Are Ontario Health Cards acceptable as ID?",
+      answer: "Do not ask for an Ontario Health Card. If the guest voluntarily offers it, Smart Serve says it can only be used as secondary ID and accepted at your discretion.",
+      avoid: "Do not choose answers saying you can demand it, require it, use it as primary ID, or that Ministry of Health is involved in alcohol service."
+    },
+    {
+      title: "Laminated Photo Trap",
+      remembered: "Laminated photo for tampering.",
+      answer: "A valid plastic or laminated government photo ID is not automatically bad. The red flag is when the photo, lettering, size, weight, shape, or lamination looks switched, altered, cut, bubbled, uneven, or tampered with.",
+      avoid: "Do not accept a phone photo, photocopy, student card, homemade laminated picture, expired ID, or an ID where the laminate/photo looks altered."
+    },
+    {
+      title: "Underage Charge Trap",
+      remembered: "Serving underage: who can charge, Ministry of Health or police?",
+      answer: "For the test, separate the roles: police can lay charges/provincial offence tickets; AGCO can issue monetary penalties and suspend, revoke, or add conditions to licences. Ministry of Health is not the alcohol-enforcement answer.",
+      avoid: "Do not pick Ministry of Health for serving-underage enforcement. Pick police for charges and AGCO for licence discipline."
+    },
+    {
+      title: "Regular Forgot ID Trap",
+      remembered: "A regular customer buys often but forgot ID.",
+      answer: "If you need to verify age because they look under 25, appear under 19, or you have doubt, ask for valid ID. If they cannot produce valid acceptable ID, refuse alcohol service or sale even if they are a regular.",
+      avoid: "Do not choose serve because you know them, because they bought before, because a friend vouches, or because they show a phone photo."
+    },
+    {
+      title: "LLBO / AGCO / LCBO Trap",
+      remembered: "The weird LLBO stuff.",
+      answer: "Use current names: AGCO regulates and issues alcohol licences in Ontario. LLCA is the current law. LCBO is a retailer/wholesaler, not the regulator. LLBO is the old licensing board name, not the current test answer.",
+      avoid: "Do not mix up AGCO with LCBO, Smart Serve, federal government, municipality, or old LLBO wording."
+    },
+    {
+      title: "Licence Consequence Trap",
+      remembered: "Who suspends or revokes the licence?",
+      answer: "AGCO/Registrar handles licence discipline such as monetary penalties, conditions, suspension, or revocation. Police handle enforcement/charges. Courts handle convictions and civil lawsuits.",
+      avoid: "Do not pick Ministry of Health, Smart Serve, or the LCBO as the body that suspends a liquor licence."
+    }
+  ];
+
   const quizQuestions = [
     {
       category: "BAC",
@@ -271,6 +310,55 @@
       choices: ["Refuse service and get support", "Serve another drink", "Offer stronger alcohol", "Let them drive"],
       answer: 0,
       why: "Choose the action that protects safety and follows the law."
+    },
+    {
+      category: "Health Card Trap",
+      q: "A guest offers an Ontario Health Card for age verification. What is the correct Smart Serve pattern?",
+      choices: ["It can only be secondary ID if voluntarily offered", "You must demand it as primary ID", "It is never allowed even if offered", "It replaces checking date of birth"],
+      answer: 0,
+      why: "Do not ask for it. If voluntarily offered, it may only be secondary ID and accepted at your discretion."
+    },
+    {
+      category: "ID Trap",
+      q: "Which laminated-ID situation is a tampering red flag?",
+      choices: ["Cuts or bubbles in the laminate around the photo", "A valid government photo ID made of plastic", "A passport with a photo", "A card that clearly matches the guest"],
+      answer: 0,
+      why: "Cuts, bubbles, uneven edges, or switched photo/lettering/lamination are tampering clues."
+    },
+    {
+      category: "ID Trap",
+      q: "A regular shows a photo of their driver's licence on their phone because they forgot the physical card. What should you do if you need ID?",
+      choices: ["Refuse alcohol service or sale", "Accept the phone photo", "Serve because they are a regular", "Ask their friend to confirm"],
+      answer: 0,
+      why: "If valid ID is required and they cannot produce it, refuse. Regular status does not replace valid ID."
+    },
+    {
+      category: "Underage Trap",
+      q: "Who is the test answer for laying charges/tickets for serving or selling to a minor?",
+      choices: ["Police", "Ministry of Health", "Smart Serve Ontario", "LCBO cashier"],
+      answer: 0,
+      why: "Police can lay charges/provincial offence tickets. AGCO handles licence discipline."
+    },
+    {
+      category: "Underage Trap",
+      q: "Who can suspend, revoke, or place conditions on a liquor licence?",
+      choices: ["AGCO/Registrar", "Ministry of Health", "Smart Serve Ontario", "The regular customer"],
+      answer: 0,
+      why: "AGCO/Registrar is the regulator for alcohol licensing consequences."
+    },
+    {
+      category: "LLCA Trap",
+      q: "Which name is the current Ontario alcohol regulator?",
+      choices: ["AGCO", "LLBO", "LCBO only", "Federal government"],
+      answer: 0,
+      why: "AGCO is the regulator. LLBO is old wording; LCBO is not the regulator."
+    },
+    {
+      category: "LLCA Trap",
+      q: "What is the current Ontario alcohol law name you should recognize?",
+      choices: ["Liquor Licence and Control Act, 2019", "Ministry of Health Act", "Old LLBO Act", "Federal Bar Service Act"],
+      answer: 0,
+      why: "Smart Serve refers to the LLCA, the Liquor Licence and Control Act, 2019."
     }
   ];
 
@@ -283,6 +371,9 @@
     "BAC: sex, weight, drinks, time. Tolerance does not lower BAC.",
     "Sandy's Law: pregnancy/FASD warning sign, visible, 8 x 10 minimum.",
     "Private SOP: invited only, no public advertising, no alcohol-sale profit.",
+    "Police can lay charges/tickets; AGCO can suspend, revoke, add conditions, or issue monetary penalties.",
+    "Regular with no valid ID: if you need to verify age, refuse.",
+    "LLBO is old wording. AGCO is the regulator. LCBO is not the regulator.",
     "Convenience licence: 4,000 sq ft or less, half food, five food categories, not mainly pharmacy.",
     "Over-service: count, slow, food/water, stop early, safe ride, document."
   ];
@@ -293,6 +384,10 @@
     ["Can a private SOP be advertised publicly?", "No."],
     ["What is the biggest age-related AGCO risk?", "Serving or selling to anyone under 19."],
     ["Can you ask for an Ontario Health Card?", "No. Secondary only if offered."],
+    ["Who lays charges/tickets for underage service?", "Police."],
+    ["Who suspends or revokes a liquor licence?", "AGCO/Registrar."],
+    ["Regular forgot ID and you need to verify age?", "Refuse alcohol service or sale."],
+    ["LLBO, LCBO, or AGCO as regulator?", "AGCO."],
     ["Convenience licence memory line?", "4,000 or less, half food, five categories, not pharmacy."]
   ];
 
@@ -384,6 +479,21 @@
         </article>
       `;
     }).join("");
+  }
+
+  function renderTraps() {
+    $("trapCount").textContent = `${trapTopics.length} traps`;
+    $("trapList").innerHTML = trapTopics.map((trap) => `
+      <article>
+        <strong>${escapeHtml(trap.title)}</strong>
+        <span>What you remembered</span>
+        <p>${escapeHtml(trap.remembered)}</p>
+        <span>Correct answer pattern</span>
+        <p class="trap-answer">${escapeHtml(trap.answer)}</p>
+        <span>Do not choose</span>
+        <p class="trap-warning">${escapeHtml(trap.avoid)}</p>
+      </article>
+    `).join("");
   }
 
   function shuffle(items) {
@@ -483,6 +593,7 @@
     const views = {
       auto: $("autoView"),
       cards: $("cardsView"),
+      traps: $("trapsView"),
       quiz: $("quizView"),
       lock: $("lockView")
     };
@@ -492,11 +603,13 @@
     [
       ["autoTab", "auto"],
       ["cardsTab", "cards"],
+      ["trapsTab", "traps"],
       ["quizTab", "quiz"],
       ["lockTab", "lock"]
     ].forEach(([id, name]) => $(id).classList.toggle("active", name === view));
 
     if (view === "cards") renderCards();
+    if (view === "traps") renderTraps();
     if (view === "lock") renderLock();
   }
 
@@ -512,6 +625,7 @@
   function bindEvents() {
     $("autoTab").addEventListener("click", () => showView("auto"));
     $("cardsTab").addEventListener("click", () => showView("cards"));
+    $("trapsTab").addEventListener("click", () => showView("traps"));
     $("quizTab").addEventListener("click", startQuiz);
     $("lockTab").addEventListener("click", () => showView("lock"));
     $("prevTopic").addEventListener("click", () => moveTopic(-1));
@@ -533,18 +647,20 @@
   }
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js?v=1").catch(() => {});
+    navigator.serviceWorker.register("service-worker.js?v=2").catch(() => {});
   }
 
   bindEvents();
   renderMetrics();
   renderTopic();
   renderCards();
+  renderTraps();
   renderLock();
   startQuiz();
   showView("auto");
 
   const params = new URLSearchParams(window.location.search);
   if (params.get("mode") === "quiz") startQuiz();
+  if (params.get("mode") === "traps") showView("traps");
   if (params.get("autoplay") === "1") startAutoRun();
 })();

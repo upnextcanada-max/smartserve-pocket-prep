@@ -117,6 +117,7 @@ h3 {
 .quiz-card,
 .mini-drill,
 .card-list article,
+.trap-list article,
 .lock-list article {
   background: var(--panel);
   border: 1px solid var(--line);
@@ -159,6 +160,7 @@ h3 {
 .answer-block span,
 .why-grid span,
 .card-list span,
+.trap-list span,
 .mini-drill span {
   display: block;
   margin-bottom: 5px;
@@ -176,7 +178,7 @@ h3 {
 
 .tabs {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 7px;
   margin-bottom: 12px;
 }
@@ -329,6 +331,7 @@ h3 {
 }
 
 .card-list,
+.trap-list,
 .lock-list,
 #miniDrill {
   display: grid;
@@ -336,10 +339,35 @@ h3 {
 }
 
 .card-list article,
+.trap-list article,
 .lock-list article {
   display: grid;
   gap: 8px;
   padding: 12px;
+}
+
+.trap-list article {
+  border-color: rgba(243, 183, 95, 0.24);
+}
+
+.trap-list strong {
+  color: var(--amber);
+  font-size: 16px;
+}
+
+.trap-answer {
+  padding: 11px;
+  color: #07110f;
+  background: rgba(116, 228, 180, 0.92);
+  border-radius: var(--radius);
+}
+
+.trap-warning {
+  padding: 10px;
+  color: #ffe8ed;
+  background: rgba(185, 52, 77, 0.26);
+  border: 1px solid rgba(255, 111, 125, 0.36);
+  border-radius: var(--radius);
 }
 
 .card-list article.mastered {
