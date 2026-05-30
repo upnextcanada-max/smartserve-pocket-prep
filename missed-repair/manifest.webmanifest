@@ -1,0 +1,17 @@
+{
+  "name": "SmartServe Missed Repair",
+  "short_name": "Missed Repair",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101817",
+  "theme_color": "#152322",
+  "description": "Focused SmartServe missed-topic study drill.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

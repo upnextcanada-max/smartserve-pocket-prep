@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#152322">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Missed Repair">
+    <title>SmartServe Missed Repair</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="stylesheet" href="styles.css?v=1">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SmartServe</p>
+          <h1>Missed Repair</h1>
+        </div>
+        <span class="status-pill">Study before test only</span>
+      </header>
+
+      <section class="alert">
+        <strong>Close this app before the proctored test.</strong>
+        <span>This drill is only for studying the concepts you missed.</span>
+      </section>
+
+      <section class="metrics" aria-label="Study progress">
+        <article>
+          <span>Topics</span>
+          <strong id="topicCount">10</strong>
+        </article>
+        <article>
+          <span>Mastered</span>
+          <strong id="masteredCount">0</strong>
+        </article>
+        <article>
+          <span>Quiz Best</span>
+          <strong id="bestScore">0%</strong>
+        </article>
+      </section>
+
+      <nav class="tabs" aria-label="Study modes">
+        <button id="autoTab" class="tab-button active" type="button">Auto</button>
+        <button id="cardsTab" class="tab-button" type="button">Cards</button>
+        <button id="quizTab" class="tab-button" type="button">Quiz</button>
+        <button id="lockTab" class="tab-button" type="button">Lock</button>
+      </nav>
+
+      <section id="autoView" class="panel">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Auto drill</p>
+            <h2 id="autoTitle">Lowest BAC</h2>
+          </div>
+          <span id="autoProgress">1/10</span>
+        </div>
+        <div class="progress-track">
+          <div id="autoBar" class="progress-bar"></div>
+        </div>
+        <article class="focus-card" id="focusCard">
+          <p class="question-label">Missed question pattern</p>
+          <h3 id="autoQuestion"></h3>
+          <div class="answer-block">
+            <span>Correct answer pattern</span>
+            <p id="autoAnswer"></p>
+          </div>
+          <div class="why-grid">
+            <article>
+              <span>Why</span>
+              <p id="autoWhy"></p>
+            </article>
+            <article>
+              <span>Memory line</span>
+              <p id="autoMemory"></p>
+            </article>
+          </div>
+        </article>
+        <div class="control-grid">
+          <button id="prevTopic" class="ghost-button" type="button">Back</button>
+          <button id="autoRun" class="primary-button" type="button">Auto-Run</button>
+          <button id="nextTopic" class="ghost-button" type="button">Next</button>
+          <button id="markKnown" class="quiet-button" type="button">Mark Known</button>
+        </div>
+      </section>
+
+      <section id="cardsView" class="panel" hidden>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">All missed topics</p>
+            <h2>Answer Cards</h2>
+          </div>
+          <button id="resetKnown" class="quiet-button" type="button">Reset</button>
+        </div>
+        <div id="cardList" class="card-list"></div>
+      </section>
+
+      <section id="quizView" class="panel" hidden>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Recall check</p>
+            <h2 id="quizTitle">Missed-Topic Quiz</h2>
+          </div>
+          <span id="quizProgress">1/20</span>
+        </div>
+        <div class="progress-track">
+          <div id="quizBar" class="progress-bar quiz"></div>
+        </div>
+        <article class="quiz-card">
+          <p id="quizCategory" class="question-label">BAC</p>
+          <h3 id="questionText"></h3>
+          <div id="choices" class="choices"></div>
+          <div id="feedback" class="feedback" hidden></div>
+        </article>
+        <div class="control-grid quiz-controls">
+          <button id="restartQuiz" class="ghost-button" type="button">Restart</button>
+          <button id="nextQuestion" class="primary-button" type="button" hidden>Next</button>
+        </div>
+      </section>
+
+      <section id="lockView" class="panel" hidden>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Last pass</p>
+            <h2>One-Minute Lock-In</h2>
+          </div>
+        </div>
+        <div id="lockList" class="lock-list"></div>
+        <article class="mini-drill">
+          <h3>Rapid Drill</h3>
+          <div id="miniDrill"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js?v=1"></script>
+  </body>
+</html>
