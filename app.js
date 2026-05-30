@@ -14,6 +14,8 @@
   let factPool = [];
   let cardIndex = 0;
   let cardFlipped = false;
+  let boardTimer = null;
+  let boardIndex = 0;
 
   function loadState() {
     try {
@@ -199,6 +201,9 @@
       cards: $("cardsView"),
       audio: $("audioView")
     };
+
+    if (view !== "cram" && boardTimer) stopBoardAutoplay("Auto-run paused.");
+
     Object.entries(views).forEach(([name, element]) => {
       element.hidden = name !== view;
     });
@@ -213,6 +218,51 @@
 
     if (view === "cram") renderFacts();
     if (view === "cards") renderCard();
+  }
+
+  function boardItems() {
+    return Array.from(document.querySelectorAll(".board-grid article"));
+  }
+
+  function setBoardStatus(message) {
+    const status = $("boardStatus");
+    if (status) status.textContent = message;
+  }
+
+  function stopBoardAutoplay(message = "Auto-run paused.") {
+    if (boardTimer) {
+      window.clearInterval(boardTimer);
+      boardTimer = null;
+    }
+
+    boardItems().forEach((item) => item.classList.remove("active"));
+    setBoardStatus(message);
+  }
+
+  function advanceBoard() {
+    const items = boardItems();
+    if (!items.length) {
+      stopBoardAutoplay("No answer-pattern cards found.");
+      return;
+    }
+
+    items.forEach((item) => item.classList.remove("active"));
+    const position = boardIndex % items.length;
+    const item = items[position];
+    item.classList.add("active");
+    item.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    const title = item.querySelector("strong")?.textContent || "Study card";
+    setBoardStatus(`Auto-running ${position + 1}/${items.length}: ${title}`);
+    boardIndex += 1;
+  }
+
+  function startBoardAutoplay() {
+    showView("cram");
+    if (boardTimer) window.clearInterval(boardTimer);
+    boardIndex = 0;
+    advanceBoard();
+    boardTimer = window.setInterval(advanceBoard, 4200);
   }
 
   function clearMissed() {
@@ -244,6 +294,8 @@
     $("cramTab").addEventListener("click", () => showView("cram"));
     $("cardsTab").addEventListener("click", () => showView("cards"));
     $("audioTab").addEventListener("click", () => showView("audio"));
+    $("autoBoard").addEventListener("click", startBoardAutoplay);
+    $("stopBoard").addEventListener("click", () => stopBoardAutoplay());
     $("shuffleFacts").addEventListener("click", () => {
       factPool = shuffle(data.facts || []);
       renderFacts();
@@ -274,7 +326,7 @@
   });
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js?v=17").catch(() => {});
+    navigator.serviceWorker.register("service-worker.js?v=18").catch(() => {});
   }
 
   bindEvents();
@@ -285,5 +337,9 @@
   const initialView = new URLSearchParams(window.location.search).get("view");
   if (["quiz", "cram", "cards", "audio"].includes(initialView)) {
     showView(initialView);
+  }
+  const autoplay = new URLSearchParams(window.location.search).get("autoplay");
+  if (autoplay === "1" || autoplay === "true") {
+    window.setTimeout(startBoardAutoplay, 500);
   }
 })();

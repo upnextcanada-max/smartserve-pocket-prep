@@ -1,4 +1,4 @@
-const CACHE_NAME = "smartserve-pocket-prep-v17";
+const CACHE_NAME = "smartserve-pocket-prep-v18";
 const ASSETS = [
   "./",
   "./index.html",

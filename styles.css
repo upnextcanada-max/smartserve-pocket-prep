@@ -359,6 +359,20 @@ h2 {
   line-height: 1.35;
 }
 
+.board-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(88px, 0.85fr);
+  gap: 8px;
+}
+
+.board-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
 .board-grid {
   display: grid;
   gap: 8px;
@@ -369,6 +383,14 @@ h2 {
   background: rgba(255, 255, 255, 0.065);
   border: 1px solid var(--line);
   border-radius: var(--radius);
+  transition: background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.board-grid article.active {
+  background: linear-gradient(150deg, rgba(40, 208, 168, 0.18), rgba(243, 183, 95, 0.12));
+  border-color: rgba(159, 244, 223, 0.62);
+  box-shadow: 0 0 0 2px rgba(159, 244, 223, 0.08), 0 16px 38px rgba(0, 0, 0, 0.24);
+  transform: translateY(-1px);
 }
 
 .board-grid strong {
