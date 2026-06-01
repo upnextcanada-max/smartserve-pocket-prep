@@ -1,4 +1,4 @@
-const CACHE_NAME = "smartserve-all-missed-repair-v32";
+const CACHE_NAME = "smartserve-all-missed-repair-v33";
 const ASSETS = [
   "./",
   "./index.html",
@@ -13,6 +13,7 @@ const ASSETS = [
   "./2026-05-21-notebooklm-official-repair.js",
   "./2026-05-30-missed-repair-import.js",
   "./2026-05-20-module-10-3-study.js",
+  "./2026-06-01-simple-module-study.js",
   "./app.js",
   "./manifest.webmanifest",
   "./assets/icon.svg",

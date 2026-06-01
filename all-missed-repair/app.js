@@ -180,8 +180,8 @@
     const item = cards[cardIndex] || { category: "SmartServe", q: "No cards loaded.", a: "" };
     $("cardCounter").textContent = cards.length ? `${cardIndex + 1}/${cards.length}` : "0/0";
     $("cardCategory").textContent = item.category || "SmartServe";
-    $("cardPrompt").textContent = item.q;
-    $("cardAnswer").textContent = item.a;
+    $("cardPrompt").textContent = item.q || item.prompt || "No prompt loaded.";
+    $("cardAnswer").textContent = item.a || item.answer || "";
     $("cardAnswer").hidden = !cardFlipped;
     $("flashcard").classList.toggle("flipped", cardFlipped);
   }
@@ -326,7 +326,7 @@
   });
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js?v=19").catch(() => {});
+    navigator.serviceWorker.register("service-worker.js?v=33").catch(() => {});
   }
 
   bindEvents();
