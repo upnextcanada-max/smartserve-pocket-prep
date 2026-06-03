@@ -281,6 +281,7 @@
 
   function bindEvents() {
     $("examSim").addEventListener("click", () => startQuiz(33));
+    $("fullBank").addEventListener("click", () => startQuiz(data.questions.length));
     $("quick10").addEventListener("click", () => startQuiz(10));
     $("missedOnly").addEventListener("click", () => startQuiz(Math.max(1, Math.min(33, state.missed.length)), true));
     $("choices").addEventListener("click", (event) => {
@@ -326,7 +327,7 @@
   });
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js?v=33").catch(() => {});
+    navigator.serviceWorker.register("service-worker.js?v=34").catch(() => {});
   }
 
   bindEvents();
