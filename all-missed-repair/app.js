@@ -327,7 +327,7 @@
   });
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js?v=34").catch(() => {});
+    navigator.serviceWorker.register("service-worker.js?v=35").catch(() => {});
   }
 
   bindEvents();
